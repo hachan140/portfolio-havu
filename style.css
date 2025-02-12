@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Blinking Animation */
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+* {
+  overscroll-behavior: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Skills Slider (Marquee) */
+.skills-slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-track {
+  animation: slide 15s linear infinite;
+  width: fit-content;
+  display: flex;
+}
+
+.slide {
+  display: inline-flex;
+  margin-right: 2rem;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.33% - 2rem));
+  }
+}
+
+/* Slow Spinning Animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Selected Works Section */
+.selected-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Works Slider - Enables Horizontal Scrolling */
+.works-slider {
+  display: flex;
+  gap: 3rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem 5vw; /* Ensures left and right projects are fully visible */
+}
+
+/* Hide scrollbar */
+.works-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .project-card {
+    flex: 0 0 60vw;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex: 0 0 80vw;
+    max-width: 90%;
+  }
+
+  .panel {
+    margin-left: 0;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .panel-content {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .skills-slider .slide-track {
+    animation: slide 20s linear infinite;
+  }
+
+  .about-profile-container {
+    width: 220px;
+    height: 220px;
+  }
+
+  .rotating-square {
+    width: 200px;
+    height: 200px;
+  }
+
+  .animation-container {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-container h3 {
+    font-size: 2.5rem;
+  }
+
+  .panel:last-child {
+    height: 60vh;
+  }
+}
+
+.panel {
+  min-height: 100vh;
+}
+
+
+/* select last panel */
+.panel:last-child {
+  min-height: 20vh;
+}
+
+.container {
+  width: 500%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+
+.glow {
+  position: absolute;
+  width: 800px;
+  height: 200px;
+  background: rgba(180, 0, 255, 0.5);
+  filter: blur(100px);
+  border-radius: 50%;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.work-description-1, .work-description-2, .work-description-3 {
+  opacity: 0;
+  transform: translateY(50px); /* Moved down */
+}
+
+.work-image-1, .work-image-2, .work-image-3 {
+  opacity: 0;
+  transform: translateY(50px); /* Moved down */
+}
+
+.hero-section .z-10 {
+  opacity: 0;
+  transform: translateY(50px); /* Moves down before appearing */
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.skills-slider {
+  opacity: 0;
+  transform: translateY(50px); /* Moved down */
+}
+
+.about-profile-container {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.experience-container {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E86DFC;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #6a5acd, #ff69b4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.project-function,
+.project-name,
+.project-image {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+
+.animation-container {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  z-index: -1;
+  top: 30%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .animation-container {
+    display: block;
+    left: 50%;
+    top: 40%;
+  }
+}
+
+.rotating-square {
+  width: 260px;
+  height: 260px;
+  border-radius: 40%;
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.6), rgba(0, 102, 255, 0.6));
+  filter: blur(20px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  animation: spin-slow 10s linear infinite;
+}
