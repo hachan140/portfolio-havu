@@ -1,3 +1,24 @@
+
+function closeAllAccordions() {
+  const allContents = document.querySelectorAll("[id^='content-']");
+  const allIcons = document.querySelectorAll("[id^='icon-']");
+  const allAccordionItems = document.querySelectorAll("[data-accordion]");
+  const allTextContainers = document.querySelectorAll(".flex.flex-col.md\\:flex-row");
+
+  allContents.forEach((content, index) => {
+    content.style.maxHeight = null;
+    allIcons[index].style.transform = 'rotate(0deg)';
+    allAccordionItems[index].classList.remove('border-[#E86DFC]');
+    allAccordionItems[index].classList.add('border-white');
+    if (allTextContainers[index]) {
+      allTextContainers[index].classList.remove('text-[#E86DFC]');
+      allTextContainers[index].classList.add('text-white');
+    }
+    allIcons[index].classList.remove('text-[#E86DFC]');
+    allIcons[index].classList.add('text-white');
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -104,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     stagger: 0.35,
     scrollTrigger: {
       trigger: ".skills-slider",
-      start: "top 80%", // Adjust when the animation starts
+      start: "top 90%", // Adjust when the animation starts
       toggleActions: "play none none reverse",
       once: true
     },
@@ -184,7 +205,8 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       trigger: ".project-function",
       start: "top 80%",
-      toggleActions: "play none none reverse"
+      toggleActions: "play none none reverse",
+      once: true
     }
   });
 
@@ -196,7 +218,8 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       trigger: ".project-name",
       start: "top 80%",
-      toggleActions: "play none none reverse"
+      toggleActions: "play none none reverse",
+      once: true
     },
     delay: 0.2 // Slight delay after project-function
   });
@@ -279,6 +302,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     );
+  });
+
+  ScrollTrigger.create({
+    trigger: ".container",
+    start: "top 0%",
+    onEnter: () => closeAllAccordions(),
+    onEnterBack: () => closeAllAccordions()
   });
 
 });
