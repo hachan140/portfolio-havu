@@ -224,3 +224,25 @@
   mix-blend-mode: screen;
   animation: spin-slow 10s linear infinite;
 }
+
+
+.swiper-wrapper {
+  width: 100%;
+  height: max-content !important;
+  padding-bottom: 64px !important;
+  -webkit-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+  position: relative;
+}
+
+.swiper-pagination-bullet {
+  background: #dc02fd;
+}
+
+#slider-button-right::after {
+  display: none;
+}
+
+#slider-button-left::after {
+  display: none;
+}

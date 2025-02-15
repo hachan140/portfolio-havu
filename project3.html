@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="image/x-icon" href="./favicon.png" rel="shortcut icon" />
   <title>Ha Vu Portfolio</title>
-  <link rel="stylesheet" href="./style.css">
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body class="px-4 md:px-10 lg:px-20 py-5 md:py-10 bg-black text-white">
@@ -23,12 +23,55 @@
         Application
       </p>
     </div>
-    <div class="flex justify-center items-center mt-12 md:mt-24">
+    <!-- <div class="flex justify-center items-center mt-12 md:mt-24">
       <div class="flex justify-center items-center w-[95vw] md:w-[80vw] h-[50vh] md:h-[80vh]">
         <img id="project-cover" class="project-image rounded-xl w-full h-full"
           style="object-fit: cover; object-position: center center;" src="./assets/ticket-function.png"
           alt="Ticketing Service">
       </div>
+    </div> -->
+    <div class="w-full mt-12 md:mt-24 !p-0"></div>
+    <div class="swiper default-carousel swiper-container !rounded-2xl !h-[50vh] md:!h-[80vh] !w-[95vw] md:!w-[80vw]">
+      <div class="swiper-wrapper !rounded-2xl !pb-0">
+        <div class="swiper-slide flex justify-center items-center !rounded-2xl">
+          <div
+            class="rounded-2xl project-image flex justify-center items-center !h-[50vh] md:!h-[80vh] !w-[95vw] md:!w-[80vw]">
+            <img id="project-cover" class=" rounded-xl h-full w-full"
+              style="object-fit: cover; object-position: center center;" src="./assets/tickets-1.jpg"
+              alt="Authentication SDK">
+          </div>
+        </div>
+        <div class="swiper-slide flex justify-center items-center !rounded-2xl">
+          <div
+            class="rounded-2xl project-image flex justify-center items-center !h-[50vh] md:!h-[80vh] !w-[95vw] md:!w-[80vw]">
+            <img id="project-cover" class=" rounded-xl h-full w-full"
+              style="object-fit: cover; object-position: center center;" src="./assets/tickets-2.jpg"
+              alt="Authentication SDK">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="flex items-center gap-8 lg:justify-start justify-center">
+          <button id="slider-button-left"
+            class="swiper-button-prev group !p-2 flex justify-center items-center border-2 border-solid border-[#E86DFC] !w-8 !h-8 transition-all duration-500 rounded-full !top-2/4 !-translate-y-8 !left-5 bg-[#b7b7ff2e]"
+            data-carousel-prev>
+            <svg class="h-5 w-5 text-[#E86DFC] group-hover:text-white" xmlns="http://www.w3.org/2000/svg" width="16"
+              height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M10.0002 11.9999L6 7.99971L10.0025 3.99719" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button id="slider-button-right"
+            class="swiper-button-next group !p-2 flex justify-center items-center border-2 border-solid border-[#E86DFC] !w-8 !h-8 transition-all duration-500 rounded-full !top-2/4 !-translate-y-8 !right-5 bg-[#b7b7ff2e]"
+            data-carousel-next>
+            <svg class="h-5 w-5 text-[#E86DFC] group-hover:text-white" xmlns="http://www.w3.org/2000/svg" width="16"
+              height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M5.99984 4.00012L10 8.00029L5.99748 12.0028" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div> -->
+      <!-- <div class="swiper-pagination"></div> -->
+    </div>
     </div>
   </section>
 
@@ -201,5 +244,24 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 </style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".default-carousel", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 4500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
 
 </html>
